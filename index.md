@@ -3,13 +3,13 @@
 This guide is intended to be a point of knowledge for everyone who wants to pass [Docker Certified Associate Exam](https://blog.docker.com/2017/09/introducing-docker-global-professional-certification-program/). The main idea is to provide links to every topic in each domain. Preference will always be the official documentation, but feel free to add useful links.
 
 ## Table of Contents:
-1. [Orchestration](https://github.com/Evalle/DCA/blob/master/README.md#domain-1-orchestration-25-of-exam)
-2. [Image Creation, Management, and Registry](https://github.com/Evalle/DCA/blob/master/README.md#domain-2-image-creation-management-and-registry-20-of-exam)
-3. [Installation and Configuration](https://github.com/Evalle/DCA/blob/master/README.md#domain-3-installation-and-configuration-15-of-exam)
-4. [Networking](https://github.com/Evalle/DCA/blob/master/README.md#domain-4-networking-15-of-exam)
-5. [Security](https://github.com/Evalle/DCA/blob/master/README.md#domain-5-security-15-of-exam)
-6. [Storage and Volumes](https://github.com/Evalle/DCA/blob/master/README.md#domain-6-storage-and-volumes-10-of-exam)
-7. [Links](https://github.com/evalle/dca#links)
+1. Orchestration
+2. Image Creation, Management, and Registry
+3. Installation and Configuration
+4. Networking
+5. Security
+6. Storage and Volumes
+7. Links
 
 ## Content
 
@@ -115,26 +115,23 @@ the filesystem](https://docs.docker.com/storage/storagedriver/#images-and-layers
 ## Quick facts about the exam
 
 ### Summary
-
 These are the most relevant quick facts of the exam:
 
-  - The exam is online, using Google Chrome browser on <B>Windows</B> or <B>MacOS</B> ONLY. <B>Linux</B> support IS NOT available at this time;
-  - 55 questions to be answered within 90 minutes. Which give you almost one minute and a half to spend on each question;
-  - It costs 195 USD or 175 EUR;
-  - Lasts for 2 years after the day you got certified;
-  - Docker does not publish exam passing scores because exam questions and passing scores are subject to change without notice;
-  - Results comes instantly.
+- The exam is online, using Google Chrome browser on <B>Windows</B> or <B>MacOS</B> ONLY. <B>Linux</B> support IS NOT available at this time;
+- 55 questions to be answered within 90 minutes. Which give you almost one minute and a half to spend on each question;
+- It costs 195 USD or 175 EUR;
+- Lasts for 2 years after the day you got certified;
+- Docker does not publish exam passing scores because exam questions and passing scores are subject to change without notice;
+- Results comes instantly.
 
-  More detailed parts about the exam, please refer to the Links section.
+### Question format
 
-  ### Question format
+All the questions follow this strucuture: 
 
-    All the questions follow this strucuture: 
-
-  With that in mind, there are THREE TYPES of giving answers:
-  - ONE RIGHT ANSWER: The answer options will be a clickable spot and you must select ONE CHOICE. This can be either select a valid answer in a true/false statement or a fill in blank example.
-  - MULTIPLE ANSWERS: The answer option will be a square-type and accepts MULTIPLE CHOICES. Before checking the answers, please refer to the question to ensure HOW MANY VALID CHOICES ARE.
-  - Discrete Option Multiple Choice (DOMC) : Options are randomly presented, one at a time. For each presented option, the examinee chooses YES or NO to indicate if the option is correct. [Sample DOMC Questions](https://sei.caveon.com/launchpad/docker-domc-practice-exam-world-geography/domc-practice).   
+There are THREE TYPES of giving answers:
+- ONE RIGHT ANSWER: The answer options will be a clickable spot and you must select ONE CHOICE. This can be either select a valid answer in a true/false statement or a fill in blank example.
+- MULTIPLE ANSWERS: The answer option will be a square-type and accepts MULTIPLE CHOICES. Before checking the answers, please refer to the question to ensure HOW MANY VALID CHOICES ARE.
+- Discrete Option Multiple Choice (DOMC) : Options are randomly presented, one at a time. For each presented option, the examinee chooses YES or NO to indicate if the option is correct. [Sample DOMC Questions](https://sei.caveon.com/launchpad/docker-domc-practice-exam-world-geography/domc-practice).   
 
 
 ## Links
