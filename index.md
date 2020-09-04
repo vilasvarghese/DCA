@@ -114,9 +114,9 @@ the filesystem](https://docs.docker.com/storage/storagedriver/#images-and-layers
 
 ## Quick facts about the exam
 
-  ### Summary
-  
-  These are the most relevant quick facts of the exam:
+### Summary
+
+These are the most relevant quick facts of the exam:
 
   - The exam is online, using Google Chrome browser on <B>Windows</B> or <B>MacOS</B> ONLY. <B>Linux</B> support IS NOT available at this time;
   - 55 questions to be answered within 90 minutes. Which give you almost one minute and a half to spend on each question;
