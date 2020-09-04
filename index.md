@@ -115,6 +115,7 @@ the filesystem](https://docs.docker.com/storage/storagedriver/#images-and-layers
 ## Quick facts about the exam
 
   ### Summary
+  
   These are the most relevant quick facts of the exam:
 
   - The exam is online, using Google Chrome browser on <B>Windows</B> or <B>MacOS</B> ONLY. <B>Linux</B> support IS NOT available at this time;
