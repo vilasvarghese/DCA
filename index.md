@@ -1,15 +1,17 @@
-# Docker Certified Associate Exam Preparation Guide (v1.3 May 2020)
+# Docker Certified Associate Exam Preparation Guide (v1.5 October 2020)
 
 This guide is intended to be a point of knowledge for everyone who wants to pass [Docker Certified Associate Exam](https://blog.docker.com/2017/09/introducing-docker-global-professional-certification-program/). The main idea is to provide links to every topic in each domain. Preference will always be the official documentation, but feel free to add useful links.
 
+Web version can be found here: [DCA website](https://evalle.github.io/DCA/)
+
 ## Table of Contents:
-1. Orchestration
-2. Image Creation, Management, and Registry
-3. Installation and Configuration
-4. Networking
-5. Security
-6. Storage and Volumes
-7. Links
+1. [Orchestration](https://github.com/Evalle/DCA/blob/master/README.md#domain-1-orchestration-25-of-exam)
+2. [Image Creation, Management, and Registry](https://github.com/Evalle/DCA/blob/master/README.md#domain-2-image-creation-management-and-registry-20-of-exam)
+3. [Installation and Configuration](https://github.com/Evalle/DCA/blob/master/README.md#domain-3-installation-and-configuration-15-of-exam)
+4. [Networking](https://github.com/Evalle/DCA/blob/master/README.md#domain-4-networking-15-of-exam)
+5. [Security](https://github.com/Evalle/DCA/blob/master/README.md#domain-5-security-15-of-exam)
+6. [Storage and Volumes](https://github.com/Evalle/DCA/blob/master/README.md#domain-6-storage-and-volumes-10-of-exam)
+7. [Links](https://github.com/evalle/dca#links)
 
 ## Content
 
@@ -26,7 +28,7 @@ This guide is intended to be a point of knowledge for everyone who wants to pass
 - [Add networks, publish ports](https://docs.docker.com/network/) 
 - [Mount volumes](https://docs.docker.com/storage/volumes/)
 - [Describe and demonstrate how to run replicated and global services](https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/#replicated-and-global-services)
-- [Apply node labels to demonstrate placement of tasks](https://success.docker.com/article/using-contraints-and-labels-to-control-the-placement-of-containers)
+- [Apply node labels to demonstrate placement of tasks](https://success.mirantis.com/article/using-contraints-and-labels-to-control-the-placement-of-containers)
 - [Describe and demonstrate how to use templates with “docker service create”](https://docs.docker.com/engine/reference/commandline/service_create/#create-services-using-templates)
 - [Identify the steps needed to troubleshoot a service not deploying](https://success.docker.com/article/swarm-troubleshooting-methodology)
 - [Describe how a Dockerized application communicates with legacy systems](https://docs.docker.com/config/containers/container-networking/)
@@ -65,7 +67,7 @@ engine on multiple platforms](https://docs.docker.com/install/)
 - [Use certificate-based client-server authentication to ensure a Docker daemon has the
 rights to access images on a registry](https://docs.docker.com/engine/security/certificates/)
 - Consistently repeat steps to deploy Docker engine, UCP, and DTR on AWS and on
-premises in an HA config. [Docker,](https://docs.docker.com/install/linux/docker-ce/ubuntu/) [DTR,](https://docs.docker.com/datacenter/dtr/2.3/guides/admin/install/) [UCP,](https://docs.docker.com/ee/ucp/), [Docker on AWS](https://docs.docker.com/docker-for-aws/) and possibly [on premises HA config](https://docs.docker.com/engine/swarm/admin_guide/#add-manager-nodes-for-fault-tolerance)
+premises in an HA config. [Docker,](https://docs.docker.com/install/linux/docker-ce/ubuntu/) [DTR,](https://docs.docker.com/datacenter/dtr/2.3/guides/admin/install/) [UCP,](https://docs.docker.com/ee/ucp/), [Docker on AWS](https://aws.amazon.com/quickstart/architecture/docker-ee/) and possibly [on premises HA config](https://docs.docker.com/engine/swarm/admin_guide/#add-manager-nodes-for-fault-tolerance)
 - [Complete configuration of backups for UCP and DTR](https://docs.docker.com/datacenter/ucp/2.2/guides/admin/backups-and-disaster-recovery/)
 - [Configure the Docker daemon to start on boot](https://docs.docker.com/install/linux/linux-postinstall/)
 
@@ -114,32 +116,31 @@ the filesystem](https://docs.docker.com/storage/storagedriver/#images-and-layers
 
 ## Quick facts about the exam
 
-### Summary
-These are the most relevant quick facts of the exam:
+  ### Summary
+  These are the most relevant quick facts of the exam:
 
-- The exam is online, using Google Chrome browser on <B>Windows</B> or <B>MacOS</B> ONLY. <B>Linux</B> support IS NOT available at this time;
-- 55 questions to be answered within 90 minutes. Which give you almost one minute and a half to spend on each question;
-- It costs 195 USD or 175 EUR;
-- Lasts for 2 years after the day you got certified;
-- Docker does not publish exam passing scores because exam questions and passing scores are subject to change without notice;
-- Results comes instantly.
+  - The exam is online, using Google Chrome browser on <B>Windows</B> or <B>MacOS</B> ONLY. <B>Linux</B> support IS NOT available at this time;
+  - 55 questions to be answered within 90 minutes. Which give you almost one minute and a half to spend on each question;
+  - It costs 195 USD or 175 EUR;
+  - Lasts for 2 years after the day you got certified;
+  - Docker does not publish exam passing scores because exam questions and passing scores are subject to change without notice;
+  - Results comes instantly.
 
-### Question format
+  More detailed parts about the exam, please refer to the Links section.
 
-All the questions follow this strucuture: 
+  ### Question format
 
-There are THREE TYPES of giving answers:
-- ONE RIGHT ANSWER: The answer options will be a clickable spot and you must select ONE CHOICE. This can be either select a valid answer in a true/false statement or a fill in blank example.
-- MULTIPLE ANSWERS: The answer option will be a square-type and accepts MULTIPLE CHOICES. Before checking the answers, please refer to the question to ensure HOW MANY VALID CHOICES ARE.
-- Discrete Option Multiple Choice (DOMC) : Options are randomly presented, one at a time. For each presented option, the examinee chooses YES or NO to indicate if the option is correct. [Sample DOMC Questions](https://sei.caveon.com/launchpad/docker-domc-practice-exam-world-geography/domc-practice).   
+ There are THREE TYPES of giving answers:
+ - ONE RIGHT ANSWER: The answer options will be a clickable spot and you must select ONE CHOICE. This can be either select a valid answer in a true/false statement or a fill in blank example.
+ - MULTIPLE ANSWERS: The answer option will be a square-type and accepts MULTIPLE CHOICES. Before checking the answers, please refer to the question to ensure HOW MANY VALID CHOICES ARE.
+ - Discrete Option Multiple Choice (DOMC) : Options are randomly presented, one at a time. For each presented option, the examinee chooses YES or NO to indicate if the option is correct. [Sample DOMC Questions](https://sei.caveon.com/launchpad/docker-domc-practice-exam-world-geography/domc-practice).   
 
 
 ## Links
 
-- [About the exam](https://success.docker.com/Certification)
-- [Official study guide (PDF)](https://docker.cdn.prismic.io/docker/4a619747-6889-48cd-8420-60f24a6a13ac_DCA_study+Guide_v1.3.pdf)
+- [About the exam](https://success.mirantis.com/certification)
+- [Official study guide (PDF)](https://training.mirantis.com/wp-content/uploads/2020/10/Docker-Study-Guide_v1.5-October.pdf)
 
 ## Contributors
 
 Thanks to all [contributors!](https://github.com/Evalle/DCA/graphs/contributors)
-
