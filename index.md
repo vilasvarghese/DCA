@@ -116,7 +116,7 @@ the filesystem](https://docs.docker.com/storage/storagedriver/#images-and-layers
 
 ## Quick facts about the exam
 
-  ### Summary
+### Summary
   These are the most relevant quick facts of the exam:
 
   - The exam is online, using Google Chrome browser on <B>Windows</B> or <B>MacOS</B> ONLY. <B>Linux</B> support IS NOT available at this time;
@@ -128,7 +128,7 @@ the filesystem](https://docs.docker.com/storage/storagedriver/#images-and-layers
 
   More detailed parts about the exam, please refer to the Links section.
 
-  ### Question format
+### Question format
 
  There are THREE TYPES of giving answers:
  - ONE RIGHT ANSWER: The answer options will be a clickable spot and you must select ONE CHOICE. This can be either select a valid answer in a true/false statement or a fill in blank example.
