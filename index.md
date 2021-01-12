@@ -4,7 +4,7 @@ This guide is intended to be a point of knowledge for everyone who wants to pass
 
 Web version can be found here: [DCA website](https://evalle.github.io/DCA/)
 
-## Table of Contents:
+## Table of Contents
 
 1. [Orchestration](#domain-1-orchestration-25-of-exam)
 1. [Image Creation, Management, and Registry](#domain-2-image-creation-management-and-registry-20-of-exam)
