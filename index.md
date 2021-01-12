@@ -13,7 +13,7 @@ Web version can be found here: [DCA website](https://evalle.github.io/DCA/)
 1. [Security](#domain-5-security-15-of-exam)
 1. [Storage and Volumes](#domain-6-storage-and-volumes-10-of-exam)
 1. [Quick facts about the exam](#quick-facts-about-the-exam)
-1. [Link](#link)
+1. [Links](#links)
 
 ## Content
 
