@@ -128,7 +128,7 @@ the filesystem](https://docs.docker.com/storage/storagedriver/#images-and-layers
   - Docker does not publish exam passing scores because exam questions and passing scores are subject to change without notice;
   - Results comes instantly.
 
-  More detailed parts about the exam, please refer to the Links section.
+  More detailed parts about the exam, please refer to the [Links](#links) section.
 
 ### Question format
 
