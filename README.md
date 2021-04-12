@@ -136,10 +136,6 @@ Web version can be found here: [DCA website](https://evalle.github.io/DCA/)
 - [Official study guide (PDF)](https://training.mirantis.com/wp-content/uploads/2020/10/Docker-Study-Guide_v1.5-October.pdf)
 - [Schedule your Docker Certified Associate Exam](https://training.mirantis.com/dca-certification-exam/)
 
-## Useful Preparation Courses
-
-- [Udemy](https://www.udemy.com/courses/search/?src=ukw&q=dca)
-
 ## Contributors
 
 Thanks to all [contributors!](https://github.com/Evalle/DCA/graphs/contributors)
