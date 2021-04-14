@@ -1,0 +1,206 @@
+docker app bundle	
+	Create a CNAB invocation image and bundle.json for the application
+	Reference: https://docs.docker.com/engine/reference/commandline/app/
+	
+	
+docker attach
+	https://docs.docker.com/engine/reference/commandline/attach/
+docker build
+	https://docs.docker.com/engine/reference/commandline/build/
+docker builder
+	https://docs.docker.com/engine/reference/commandline/builder/
+		docker builder build	
+			Build an image from a Dockerfile
+		docker builder prune	
+			Remove build cache
+			
+docker buildx
+	https://docs.docker.com/engine/reference/commandline/buildx/
+	docker buildx bake	
+		Build from a file
+
+docker checkpoint		
+	https://docs.docker.com/engine/reference/commandline/checkpoint/
+	docker checkpoint create	
+		Create a checkpoint from a running container		
+		
+docker cluster 
+	https://docs.docker.com/engine/reference/commandline/cluster/
+	docker cluster create
+	why?
+	
+docker commit
+	https://docs.docker.com/engine/reference/commandline/commit/	
+	
+docker compose
+	https://docs.docker.com/engine/reference/commandline/compose/
+	
+docker config	
+	https://docs.docker.com/engine/reference/commandline/config/	
+	
+docker container 
+	https://docs.docker.com/engine/reference/commandline/container/	
+	
+docker context COMMAND
+	https://docs.docker.com/engine/reference/commandline/context/
+	
+docker cp
+	Copies content into the container
+	https://docs.docker.com/engine/reference/commandline/cp/	
+	
+docker create
+	Creates writable layer
+	https://docs.docker.com/engine/reference/commandline/create/	
+	
+docker diff
+	https://docs.docker.com/engine/reference/commandline/diff/
+	
+docker events
+	https://docs.docker.com/engine/reference/commandline/events/
+	
+docker exec
+	https://docs.docker.com/engine/reference/commandline/exec/
+	
+docker export	
+	https://docs.docker.com/engine/reference/commandline/export/
+	
+	
+docker history	
+	https://docs.docker.com/engine/reference/commandline/history/
+	
+docker image	
+	https://docs.docker.com/engine/reference/commandline/image/	
+	
+	
+docker images
+	https://docs.docker.com/engine/reference/commandline/images/	
+	
+docker import
+	https://docs.docker.com/engine/reference/commandline/import/	
+	
+docker info
+	https://docs.docker.com/engine/reference/commandline/info/	
+	
+docker inspect
+	https://docs.docker.com/engine/reference/commandline/inspect/
+	
+
+docker kill
+	https://docs.docker.com/engine/reference/commandline/kill/
+	
+	
+docker load
+	https://docs.docker.com/engine/reference/commandline/load/
+	
+
+docker login
+	https://docs.docker.com/engine/reference/commandline/login/
+	
+docker logout
+	https://docs.docker.com/engine/reference/commandline/logout
+	
+docker logs
+	https://docs.docker.com/engine/reference/commandline/logs
+	
+docker manifest
+	https://docs.docker.com/engine/reference/commandline/manifest/
+	
+docker network	
+	https://docs.docker.com/engine/reference/commandline/network/
+	
+docker node
+	https://docs.docker.com/engine/reference/commandline/node/
+	
+docker pause
+	https://docs.docker.com/engine/reference/commandline/pause/
+	
+docker plugin
+	https://docs.docker.com/engine/reference/commandline/plugin
+	
+docker port
+	https://docs.docker.com/engine/reference/commandline/port
+	
+docker ps
+	https://docs.docker.com/engine/reference/commandline/ps
+	
+docker pull
+	https://docs.docker.com/engine/reference/commandline/pull
+	
+docker push 
+	https://docs.docker.com/engine/reference/commandline/push
+	
+docker registry
+	https://docs.docker.com/engine/reference/commandline/registry
+	
+docker rename
+	https://docs.docker.com/engine/reference/commandline/rename
+	
+docker restart
+	https://docs.docker.com/engine/reference/commandline/restart/
+
+
+docker rm
+	https://docs.docker.com/engine/reference/commandline/rm
+	
+docker rmi
+	https://docs.docker.com/engine/reference/commandline/rmi
+	
+docker run
+	https://docs.docker.com/engine/reference/commandline/run
+	
+docker save
+	https://docs.docker.com/engine/reference/commandline/save
+	
+docker search
+	https://docs.docker.com/engine/reference/commandline/search
+	
+	
+docker secret
+	https://docs.docker.com/engine/reference/commandline/secret
+	
+docker service
+	https://docs.docker.com/engine/reference/commandline/service
+	
+	
+docker stack
+	https://docs.docker.com/engine/reference/commandline/stack
+	
+docker start
+	https://docs.docker.com/engine/reference/commandline/start
+	
+docker stats
+	https://docs.docker.com/engine/reference/commandline/stats
+	
+docker stop
+	https://docs.docker.com/engine/reference/commandline/stop
+	
+docker swarm
+	https://docs.docker.com/engine/reference/commandline/swarm
+	
+docker system
+	https://docs.docker.com/engine/reference/commandline/system
+	
+docker tag
+	https://docs.docker.com/engine/reference/commandline/tag
+	
+dcoker top
+	https://docs.docker.com/engine/reference/commandline/top
+	
+docker trust
+	https://docs.docker.com/engine/reference/commandline/trust
+	
+docker unpause
+	https://docs.docker.com/engine/reference/commandline/unpause/
+	
+docker update
+	https://docs.docker.com/engine/reference/commandline/update
+	
+docker version
+	https://docs.docker.com/engine/reference/commandline/version
+	
+docker volume
+	https://docs.docker.com/engine/reference/commandline/volume
+	
+docker wait
+	https://docs.docker.com/engine/reference/commandline/wait
+	

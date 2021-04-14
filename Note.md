@@ -29,10 +29,10 @@ Web version can be found here: [DCA website](https://evalle.github.io/DCA/)
 - [Describe and demonstrate how to extend the instructions to run individual containers into running services under swarm](https://docs.docker.com/engine/swarm/swarm-tutorial/deploy-service/)
 - Describe the importance of quorum in a swarm cluster.
 	- [What is RAFT algorihm](http://thesecretlivesofdata.com/raft/) 
-	- [RAFT notes](https://github.com/vilasvarghese/DCA/edit/master/Domain1-Orchestration/Raft/Notes.txt)
+	- [RAFT notes](https://github.com/vilasvarghese/DCA/blob/master/Domain1-Orchestration/Raft/Notes.txt)
 	
 - [Describe the difference between running a container and running a service.](https://github.com/vilasvarghese/dca/Domain1-Orchestration/RunningServiceAndContainer/Notes.txt)
-- [Interpret the output of “docker inspect” commands](https://github.com/vilasvarghese/dca/Domain1-Orchestration/dockerInspect/Notes.txt)
+- [Interpret the output of “docker inspect” commands](https://github.com/vilasvarghese/DCA/blob/master/Domain1-Orchestration/dockerInspect/Notes.txt)
 - [Convert an application deployment into a stack file using a YAML compose file with "docker stack deploy"](https://docs.docker.com/engine/swarm/stack-deploy/)
 
 - [Manipulate a running stack of services](https://docs.docker.com/engine/reference/commandline/stack_services/#related-commands)
@@ -41,16 +41,16 @@ Web version can be found here: [DCA website](https://evalle.github.io/DCA/)
 	* docker stack ps	List the tasks in the stack
 	* docker stack rm	Remove one or more stacks
 	* docker stack services	List the services in the stack
-
-- [Describe and demonstrate orchestration activities](https://github.com/vilasvarghese/dca/Domain1-Orchestration/KubernetesOrchestration/k8sNotes.txt)
+- [Update Stack](https://docs.docker.com/engine/reference/commandline/service_update/)
+- [Describe and demonstrate orchestration activities](https://github.com/vilasvarghese/DCA/blob/master/Domain1-Orchestration/KubernetesOrchestration/k8sNotes.txt)
 
 - [Increase number of replicas](https://docs.docker.com/engine/reference/commandline/service_scale/)
 - [Add networks, publish ports](https://docs.docker.com/network/) 
 - [Mount volumes](https://docs.docker.com/storage/volumes/)
 - [Describe and demonstrate how to run replicated and global services](https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/#replicated-and-global-services)
-- [Apply node labels to demonstrate placement of tasks](https://success.mirantis.com/article/using-contraints-and-labels-to-control-the-placement-of-containers)
-- [Describe and demonstrate how to use templates with “docker service create”](https://docs.docker.com/engine/reference/commandline/service_create/#create-services-using-templates)
-- [Identify the steps needed to troubleshoot a service not deploying](https://success.mirantis.com/article/swarm-troubleshooting-methodology)
+- [Apply node labels to demonstrate placement of tasks](https://github.com/vilasvarghese/DCA/blob/master/Domain1-Orchestration/PlacementConstraints)
+- [Describe and demonstrate how to use templates with “docker service create”](https://docs.docker.com/engine/swarm/services/)
+- [Identify the steps needed to troubleshoot a service not deploying]()
 - [Describe how a Dockerized application communicates with legacy systems](https://docs.docker.com/config/containers/container-networking/)
 - [Describe how to deploy containerized workloads as Kubernetes pods and deployments](https://docs.docker.com/get-started/kube-deploy/)
 - [Describe how to provide configuration to Kubernetes pods using configMaps and secrets](https://opensource.com/article/19/6/introduction-kubernetes-secrets-and-configmaps)

@@ -1,0 +1,122 @@
+https://docs.docker.com/engine/swarm/services/
+https://www.sweharris.org/post/2017-07-30-docker-placement/
+
+	Placement constraints
+	---------------------
+	Use placement constraints 
+		Control nodes a service can be assigned to. 
+		
+	For e.g.	
+		If we want a service to run only on nodes with the label region set to Tomcat=true. 
+		
+		If no appropriately-labelled nodes are available
+			tasks will wait in Pending until they become available. 
+	
+	--constraint flag uses an equality operator (== or !=). 
+	
+	For replicated services, 
+		it is possible that all services run on the same node
+	or 
+		each node only runs one replica
+	or 
+		some nodes don’t run any replicas. 
+	
+	For global services
+		service runs on every node that meets the 
+			placement constraint 
+		and 
+			any resource requirements.
+			
+
+
+	If we wanted to run tomcat only on a node labelled Tomcat=true, this is how we can do that.
+	
+	
+	docker node update --label-add Tomcat=true test1.spuddy.org
+	docker node update --label-add Tomcat=true test2.spuddy.org 
+	
+	docker node inspect --format '{{ .Spec.Labels }}' test1.spuddy.org
+	docker node inspect --format '{{ .Spec.Labels }}' test2.spuddy.org
+	
+----------------------------------------------
+  tomcat:
+    image: sweh/test:fake_tomcat
+    deploy:
+      replicas: 2
+      placement:
+        constraints: [node.labels.Tomcat == true ]
+    volumes:
+      - "/myapp/apache/certs:/etc/pki/tls/certs/myapp"
+      - "/myapp/apache/logs:/etc/httpd/logs"
+      - "/myapp/tomcat/webapps:/usr/local/apache-tomcat-8.5.3/webapps"
+      - "/myapp/tomcat/logs:/usr/local/apache-tomcat-8.5.3/logs"
+    ports:
+      - "8443:443"
+------------------------------------------------
+	docker stack deploy -c stack.tomcat myapp
+	docker stack ls
+	docker service ls
+	docker service ps myapp_tomcat
+	
+	echo hello | nc localhost 8443
+	
+	
+	
+
+	Multiple services
+	=================
+------------------------------------------
+  zookeeper:
+    image: sweh/test:fake_zookeeper
+    deploy:
+      replicas: 2
+      placement:
+        constraints: [node.labels.Zookeeper == true ]
+    volumes:
+      - "/myapp/zookeeper/data:/usr/zookeeper/data"
+      - "/myapp/zookeeper/logs:/usr/zookeeper/logs"
+      - "/myapp/zookeeper/conf:/usr/zookeeper/conf"
+    environment:
+      CFG_FILE: /usr/zookeeper/conf/zoo.cfg
+
+  memcached:
+    image: sweh/test:fake_memcached
+    deploy:
+      replicas: 1
+      placement:
+        constraints: [node.labels.Memcached == true ]
+--------------------------------------------
+
+Create the following tags on nodes
+
+----------------------------------------------
+docker-ce.spuddy.org
+    map[]	# no label on the manager node.
+test1.spuddy.org
+    map[Memcached:true Tomcat:true]
+test2.spuddy.org
+    map[Tomcat:true Zookeeper:true]
+test3.spuddy.org
+    map[Zookeeper:true]
+----------------------------------------------
+
+docker stack rm myapp
+docker stack deploy -c stack.full myapp
+docker stack ps myapp
+
+Add the Memcached label to another node and then rescale:
+docker node update --label-add Memcached=true test3.spuddy.org
+docker service scale myapp_memcached=2
+docker service ps myapp_memcached
+
+
+Let’s add Zookeeper to test1 but “forget” to make the volumes:
+docker node update --label-add Zookeeper=true test1.spuddy.org
+docker service scale myapp_zookeeper=3
+docker service ps myapp_zookeeper
+
+Migration of services between nodes
+docker service ps myapp_memcached
+docker node update --label-add Memcached=true test2.spuddy.org
+docker node update --label-rm Memcached test3.spuddy.org
+docker service ps myapp_memcached

@@ -1,0 +1,61 @@
+References:
+	1. https://www.digitalocean.com/community/tutorials/how-to-debug-and-fix-common-docker-issues
+	2. https://github.com/tiangolo/full-stack/issues/19
+	3. https://stackoverflow.com/questions/45372848/docker-swarm-how-to-find-out-why-service-cant-start
+	4. https://docs.docker.com/engine/swarm/admin_guide/
+	5. https://cumulusnetworks.com/blog/troubleshooting-docker-swarm-netq/
+	6. https://runnable.com/blog/5-problems-with-docker-swarm
+
+Debug and Fix Common Docker Issues
+----------------------------------
+
+
+Introduction
+Problems may arise while building your image and integrating all of the layers that your app needs, especially if you’re new to Docker images and containers. 
+
+
+Question 1 — Resolving Problems with the Dockerfile
+----------------------------------------------------
+Open up the container and try executing steps one by one.
+Certain commands in dockerfile can be found to be stuck.
+if you run into this you may want to change the machine.
+
+
+
+Question 2 — Resolving Container Naming Issues
+----------------------------------------------------
+Attempting to create a container that is already present.
+docker ps and the container name which is duplicating
+
+Attempt with --name #Unique 
+Solution: docker rename
+
+
+Step 3 — Resolving Container Communication Issues
+----------------------------------------------------
+Docker makes it easy to instantiate several containers so you can run all of them simultanously.
+
+
+
+https://github.com/tiangolo/full-stack/issues/19
+Troubleshoot a service when it fails to run 
+
+journalctl -u docker CONTAINER_NAME=db
+
+
+How to troubleshoot a service when it fails to run
+--------------------------------------------------
+https://github.com/tiangolo/full-stack/issues/19
+
+
+docker swarm how to find out why service can't start
+-----------------------------------------------------
+docker run nginx
+docker service ps --no-trunc {serviceName}
+
+
+
+Administer and maintain a swarm of Docker Engines
+--------------------------------------------------
+https://cumulusnetworks.com/blog/troubleshooting-docker-swarm-netq/
+https://docs.docker.com/engine/swarm/admin_guide/

@@ -1,0 +1,26 @@
+Refer  https://docs.docker.com/engine/swarm/services/
+docker service create --name hosttempl --hostname="{{.Node.ID}}-{{.Service.Name}}" busybox top
+
+docker service ps hosttempl
+docker inspect --format="{{.Config.Hostname}}" hosttempl.1.wo41w8hg8qanxwjwsg4kxpprj
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------
+Reference: 
+https://asciinema.org/a/225003
+
+docker service create --name hosttemp1 --constraint node.role==manager --hostname="{{.Node.Hostname}}-{{.Node.ID}}-{{.Service.Name}}" busybox top
+
+
+docker service ps hosttemp1
+docker inspect <id> --format "{{json .Status}}"
+
+docker inspect --format="{{.Config.Hostname}}" <container id>
