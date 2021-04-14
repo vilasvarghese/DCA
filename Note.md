@@ -29,12 +29,21 @@ Web version can be found here: [DCA website](https://evalle.github.io/DCA/)
 - [Describe and demonstrate how to extend the instructions to run individual containers into running services under swarm](https://docs.docker.com/engine/swarm/swarm-tutorial/deploy-service/)
 - Describe the importance of quorum in a swarm cluster.
 	- [What is RAFT algorihm](http://thesecretlivesofdata.com/raft/) 
-	- 
-- [Describe the difference between running a container and running a service.](https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/#services-tasks-and-containers)
-- [Interpret the output of “docker inspect” commands](https://docs.docker.com/engine/reference/commandline/inspect/)
+	- [RAFT notes](https://github.com/vilasvarghese/DCA/edit/master/Domain1-Orchestration/Raft/Notes.txt)
+	
+- [Describe the difference between running a container and running a service.](https://github.com/vilasvarghese/dca/Domain1-Orchestration/RunningServiceAndContainer/Notes.txt)
+- [Interpret the output of “docker inspect” commands](https://github.com/vilasvarghese/dca/Domain1-Orchestration/dockerInspect/Notes.txt)
 - [Convert an application deployment into a stack file using a YAML compose file with "docker stack deploy"](https://docs.docker.com/engine/swarm/stack-deploy/)
+
 - [Manipulate a running stack of services](https://docs.docker.com/engine/reference/commandline/stack_services/#related-commands)
-- [Describe and demonstrate orchestration activities](https://docs.docker.com/get-started/orchestration/)
+	* docker stack deploy	#Deploy a new stack or update an existing stack
+	* docker stack ls	List stacks
+	* docker stack ps	List the tasks in the stack
+	* docker stack rm	Remove one or more stacks
+	* docker stack services	List the services in the stack
+
+- [Describe and demonstrate orchestration activities](https://github.com/vilasvarghese/dca/Domain1-Orchestration/KubernetesOrchestration/k8sNotes.txt)
+
 - [Increase number of replicas](https://docs.docker.com/engine/reference/commandline/service_scale/)
 - [Add networks, publish ports](https://docs.docker.com/network/) 
 - [Mount volumes](https://docs.docker.com/storage/volumes/)

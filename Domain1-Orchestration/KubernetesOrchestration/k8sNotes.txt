@@ -1,0 +1,27 @@
+Orchestration
+
+	portability and reproducibility of containers
+		scale our containerized applications across clouds and datacenters. 
+	Containers effectively guarantee that those applications run the same way 
+
+Tools to 
+	manage, 
+	scale 
+	maintain 
+		containerized applications are called orchestrators
+	e.g. 
+		Kubernetes and Docker Swarm. 
+		Development environment deployments of both of these orchestrators are provided by Docker Desktop
+		
+		
+The advanced modules teach you how to:
+
+	https://docs.docker.com/get-started/kube-deploy/
+	
+
+
+Install kubernetes
+------------------
+
+Followed by kubernetes session.
+	

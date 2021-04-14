@@ -14,9 +14,160 @@
 			* The existing tasks keep running 
 			* Scheduler cannot rebalance tasks to cope with failures as quorum is not formed.
 
-The implementation of the consensus algorithm in swarm mode means it features the properties inherent to distributed systems:
+*Consensus algorithm in swarm mode means 
+	it is capable of supporting distributed systems:
+	References:
+		* https://www.usenix.org/system/files/conference/atc14/atc14-paper-ongaro.pdf
+		* https://foxutech.com/what-is-raft-and-how-its-working-on-docker-swarm/
+		Let's understand raft in action for
+			* Leader election
+			* Log replication
+		
+		[Refer image](https://github.com/vilasvarghese/DCA/edit/master/Domain1-Orchestration/images/swarm-archetecture.png)
+		
+		* Managers nodes handle the cluster states 
+		* Worker nodes execute the workload. 
+		* By default, a manager is also a worker in docker.
 
-agreement on values in a fault tolerant system. (Refer to FLP impossibility theorem and the Raft Consensus Algorithm paper)
+	Manager Nodes
+	-------------
+	* Leader node logs all the actions done in the cluster 
+		* node added
+		* node removed
+		* creation of a service
+			* ect.
+	* Swarm (RAFT) ensures that the leader’s logs are replicated within each manager 
+		* so Leader can be replaced if required.
+	* Each manager 
+		* has same version of logs
+		* logs are encrypted. 
+		
+	Why are Raft logs encrypted in Swarm?
+	-------------------------------------
+	* Docker 1.13 introduced secret management
+	* Enables to securely provide sensitive information to containers running on a Swarm. 
+	* Operator creates a secret 
+		* Usually containing 
+			* credentials, 
+			* certificates
+			* other private information 
+	* Secret is providee to a service. 
+	* Secret is saved in the Raft logs 
+		* Accessible from each container of the service. 
+			* in a temporary filesystem (/run/secrets/SECRET_NAME) 
+	* Having the logs encrypted 
+		* Attacker can't access the secret even if a manager is compromised.
+	* Public/private keys are used for the encryption. 
+	* The private key in /var/lib/docker/swarm/certificates/swarm-node.key is used to encrypt 
+		* Raft logs 
+		* Ensure the secure TLS communication between the nodes.
+		
+		* Refer below url to know how to use swarm-rafttool from SwarmKit to decrypt
+			* https://foxutech.com/what-is-raft-and-how-its-working-on-docker-swarm/
+			* https://medium.com/lucjuggery/raft-logs-on-swarm-mode-1351eff1e690
+		.
+
+	# Lock a Swarm for even more security
+	-------------------------------------
+	* Presence of public/private keys on the same machine is a security risk.
+	* To mitigate it, public/private keys can be encrypted.
+	* This is done by locking the swarm. 
+	* This generates unlock key 
+		* which is used to encrypt the public/private keys. 
+		* This unlock key must be saved offline 
+			* provided manually when 
+				* docker daemon restart 
+				* decrypt the logs 
+				
+	
+	
+
+	#Fault tolerant 
+	--------------
+	* FLP impossibility theorem 
+		* https://www.the-paper-trail.org/post/2008-08-13-a-brief-tour-of-flp-impossibility/
+	* Raft Consensus Algorithm 
+		https://www.usenix.org/system/files/conference/atc14/atc14-paper-ongaro.pdf
+	
+	
+	
+	FLP Impossibility
+	------------------
+	One of the most important results in distributed systems theory 
+	Published in April 1985 by 
+		Fischer, 
+		Lynch and 
+		Patterson. 
+	A particular result, known as the ‘FLP result’
+		settled a dispute that had been ongoing in distributed systems 
+		
+		The problem of consensus - 
+			Getting a distributed network of processors to agree on a common value 
+				was known to be solvable in a synchronous setting
+					where processes could proceed in simultaneous steps. 
+			In particular, the synchronous solution was resilient to faults, 
+				where processors crash and take no further part in the computation. 
+		Informally, synchronous models allow failures to be detected 
+			by waiting one entire step length for a reply from a processor
+			assume that it has crashed if no reply is received.
+
+	This kind of failure detection is impossible in an asynchronous setting
+		there are no bounds on the amount of time a processor might take to complete its work 
+		then respond with a message. 
+	Therefore it’s impossible to say 
+		whether a processor has crashed 
+		or 
+		is simply taking a long time to respond. 
+	The FLP result shows that in an asynchronous setting, 
+		where only one processor might crash, 
+		there is no distributed algorithm that solves the consensus problem.
+
+	To learn more (highly, highly recommended) 
+		http://cs-www.cs.yale.edu/homes/arvind/cs425/doc/fischer.pdf
+
+	Consensus
+	---------
+	The problem of consensus 
+		is genuinely fundamental to distributed systems research. 
+	Getting distributed processors to agree on a value has many, many applications. 
+	For e.g., 
+		the problem of deciding whether to commit a transaction to a database 
+			could be decided by a consensus algorithm between a majority of replicas. 
+		You can think of consensus as ‘voting’ for a value.
+
+	There are several variations on the consensus problem that differ in ‘strength’ - 
+		a solution to a stronger problem typically will solve weaker problems. 
+	A strong form of consensus is as follows:
+	Given a set of processors, each with an initial value:
+		All non-faulty processes eventually decide on a value
+		All processes that decide do so on the same value
+		The value that has been decided must have proposed by some process
+		These three properties are referred to as 
+			termination, 
+			agreement and 
+			validity. 
+		Any algorithm that has these three properties can be said to solve the consensus problem.
+
+	Termination and agreement are fairly self explanatory - 
+		- We explicitly do not require any particular behaviour from faulty nodes, 
+			
+	The FLP proof actually concerns a slightly weaker form of consensus - 
+		for termination it is enough only that some non-faulty process decides. 
+		It’s not enough to have one distinguished process that always decides its own value
+			that process might fail
+			another will have to take its place for even weak termination to be satisfied.
+
+	Clearly a solution to strong consensus will be a perfectly good solution for weak consensus as well, so by ruling out the possibility of the latter the FLP result similarly precludes a solution to the former.
+
+	For simplicity, the authors consider that the only values possible are 0 and 1. Every argument in the paper generalises to more values.
+
+	
+	Please read for more details.
+	https://www.the-paper-trail.org/post/2008-08-13-a-brief-tour-of-flp-impossibility/
+	RAFT
+		https://www.usenix.org/system/files/conference/atc14/atc14-paper-ongaro.pdf
+	
+		
 mutual exclusion through the leader election process
 cluster membership management
 globally consistent object sequencing and CAS (compare-and-swap) primitives

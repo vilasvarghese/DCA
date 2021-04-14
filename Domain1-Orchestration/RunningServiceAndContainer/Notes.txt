@@ -1,0 +1,150 @@
+Reference: 
+	https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/#services-tasks-and-containers
+
+
+How services work
+-----------------
+* Docker Engine can be in swarm mode
+	* Create a service to deploy an application in swarm mode. 
+	* Service is the image for a microservice 
+	* When you create a service, you specify 
+		* which container image to use 
+		* which commands to execute inside running containers. 
+	[Optionally]	
+		* port where the swarm makes the service available 
+		* outside the swarm an overlay network 
+			* for the service to connect to other services in the swarm
+		* CPU and memory limits and reservations
+		* a rolling update policy
+		* number of replicas of the image to run in the swarm
+
+Service: 1 or more instances of a microservice running in swarm mode.
+Task: Listener in the swarm for each instance of service running
+	Refer image in https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/#services-tasks-and-containers
+Container: an isolated process. 
+	
+
+Services, tasks, and containers
+-------------------------------
+	
+	Refere to the image https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/#services-tasks-and-containers
+	
+	* While deploying the service to the swarm, 
+		* Swarm manager accepts your service definition as the desired state for the service. 
+		* Schedules the service on nodes 
+			in the swarm as one or more replica tasks. 
+		* Tasks run independently of each other on nodes in the swarm.
+
+	In the diagram shows an HTTP listener service with three replicas. 
+	Each of the three instances of the listener is a task in the swarm.
+
+	In the swarm mode model, each task invokes exactly one container. 
+	A task is like a “slot” where the scheduler places a container. 
+	
+	Once the container is live, 
+		scheduler recognizes that the task is in a running state. 
+		If the container 
+			fails health checks or 
+			terminates, 
+		the task terminates.
+
+Tasks and scheduling
+	Task is the atomic unit of scheduling within a swarm. 
+	When you declare a desired service state by 
+		creating or 
+		updating a service, 
+	the orchestrator realizes the desired state by scheduling tasks. 
+	
+	For e.g., 
+	define a service with three instances of an HTTP listener 
+	The orchestrator 
+		creates three tasks. 
+		Each task is a slot 
+			scheduler fills them by spawning a container. 
+	The container is the instantiation of the task. 
+	If an HTTP listener task 
+		fails its health check 
+		or 
+		crashes, 
+	orchestrator creates a new replica task that spawns a new container.
+
+	A task is a one-directional mechanism. 
+	It progresses monotonically through a series of states: 
+		assigned, 
+		prepared, 
+		running, etc. 
+	If the task fails the 
+		orchestrator removes the 
+			task and 
+			its container 
+		and creates a new task to replace it 
+			according to the desired state specified by the service.
+
+	The underlying logic of Docker swarm mode 
+		general purpose scheduler 
+	and 
+		orchestrator. 
+	The service and task abstractions are unaware of the containers they implement. 
+	
+	Hypothetically, 
+		you could implement other types of tasks such as 
+			virtual machine tasks or 
+			non-containerized process tasks. 
+		The scheduler and orchestrator are agnostic about the type of task. 
+	N.B: However, the current version of Docker only supports container tasks.
+
+	The diagram below shows how swarm mode accepts service create requests and schedules tasks to worker nodes.		
+	
+	
+	
+Pending services
+	A service may be configured in such a way that 
+		no node currently in the swarm can run its tasks. 
+		service remains in state pending. 
+	Here are a few examples of when a service might remain in state pending.
+	
+	1. Scale the service to 0 - it remains in pending.
+	2. If all nodes are paused or drained
+		create a service, 
+			it will remain in pending state until a node becomes available. 
+		The first node to become available gets all of the tasks.
+		
+	3. Create a service with specific reserve of memory. 
+	If no node in the swarm has the required amount of memory
+		the service remains in a pending state until a node is available 
+
+	4. Create a service with placement constraints on the service,
+		the constraints may not be able to be honored at a given time.
+
+	So requirements and configuration of your tasks are not tightly tied 
+		to the current state of the swarm. 
+	As the administrator of a swarm, 
+		we declare the desired state of swarm, 
+		manager node works with the nodes in the swarm to create that state. 
+		
+	
+Replicated and global services
+	There are two types of service deployments
+		replicated and 
+		global.
+
+	Replicated service
+	------------------
+		Specify the number of identical tasks you want to run. 
+		For e.g., 
+			deploy an HTTP service with three replicas.
+
+	Global service 
+	--------------
+	Service that runs one task on every node. 
+	No pre-specified number of tasks. 
+	Add a node to the swarm
+		orchestrator creates a task and 
+		scheduler assigns the task to the new node. 
+	Good candidates 
+		monitoring agents
+		anti-virus scanners 
+
+	Refer diagram in 
+	https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/#services-tasks-and-containers
+	
