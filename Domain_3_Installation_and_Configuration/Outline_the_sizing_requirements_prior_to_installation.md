@@ -1,8 +1,12 @@
 # Outline the sizing requirements prior to installation
 
 ## Official Docker Documentation
-[Hardware and software requirements](https://docs.docker.com/datacenter/ucp/2.2/guides/admin/install/system-requirements/#hardware-and-software-requirements)  
-[DTR requirements](https://success.docker.com/KBase/What_are_the_minimum_requirements_for_Docker_Trusted_Registry_(DTR)%3F)  
-[UCP requirements](https://docs.docker.com/datacenter/ucp/2.2/guides/admin/install/system-requirements/)  
-[Docker EE best practices and design considerations](https://success.docker.com/article/Docker_Reference_Architecture-_Docker_EE_Best_Practices_and_Design_Considerations_17_03)  
+[Hardware and software requirements - Unofficial](https://docs.cambridgesemantics.com/anzograph/v2.2/userdoc/install-docker.htm)  
+[DTR requirements](http://docs.docker.oeynet.com/datacenter/dtr/2.3/guides/admin/install/system-requirements/#software-requirements)  
+[UCP requirements](http://docs.docker.oeynet.com/datacenter/ucp/2.2/guides/admin/install/system-requirements/#hardware-and-software-requirements)  
+[Docker EE architecture]
+(https://jff--docker-docs.netlify.app/ee/docker-ee-architecture/)
+[UCP architecture]
+(https://jff--docker-docs.netlify.app/ee/ucp/ucp-architecture/)
+[DTR architecture](https://jff--docker-docs.netlify.app/ee/dtr/architecture/)
 

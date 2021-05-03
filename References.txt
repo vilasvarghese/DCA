@@ -1,0 +1,49 @@
+
+"How I Got Docker Certified" Blog Post (holds all links)
+http://mvpjava.com/docker-certified/
+​
+
+"Docker In Action" - I recommend reading this Book
+https://www.amazon.com/Docker-Action-...
+​
+
+Docker Study Guide
+https://success.docker.com/certification
+​
+
+Docker Certification Associate preparation guide - a list of resources to help you prepare for a successful certification
+https://github.com/DevOps-Academy-Org/dca-prep-guide
+​
+
+Play With Docker - PWD (Online Lab)
+https://labs.play-with-docker.com/
+​
+
+Docker Documentation
+https://docs.docker.com/
+​
+https://success.docker.com/
+​
+
+
+Docker Official Study Guide
+https://training.mirantis.com/dca-cer...
+
+
+Docker | Register for the exam
+https://prod.examity.com/docker/
+​
+
+250 Practice Questions for the Docker Certified Associate - DCA Exam
+https://medium.com/bb-tutorials-and-thoughts/250-practice-questions-for-the-dca-exam-84f3b9e8f5ce
+​
+
+======================================================
+Subscribe to MVP Java ...
+https://www.youtube.com/c/MVPJava?sub...​
+
+Follow me ...
+Website  : http://www.mvpjava.com
+​Facebook : https://www.facebook.com/mvpj
+
+30% questions are coming from kubernetes.
