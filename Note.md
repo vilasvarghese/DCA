@@ -26,18 +26,53 @@ Web version can be found here: [DCA website](https://evalle.github.io/DCA/)
 - Describe sizing requirements for installation
 	- [Windows](https://docs.docker.com/docker-for-windows/install/#system-requirements)
 	- [Mac](https://docs.docker.com/docker-for-mac/install/#what-to-know-before-you-install)
-	- [Linux - Ununtu - Unofficial](https://www.servermania.com/kb/articles/install-docker-ubuntu/)
+	- [Linux - Ununtu - Official](https://docs.docker.com/engine/install/ubuntu/)
+	- [Linux - CentOS - Official](https://docs.docker.com/engine/install/centos/)
+	- [Linux - PostInstall - Official](https://docs.docker.com/engine/install/linux-postinstall/)
 - [Describe and demonstrate the setup of repo, selection of a storage driver, and installation of the Docker engine on multiple platforms](https://docs.docker.com/engine/install/)
+- [Docker in rootless mode]
+	- Refer my notes - DCA\Domain_3_Installation_and_Configuration\RootLess_mode.md
+	. https://docs.docker.com/registry/deploying/
+		- docker container prune may be required before deleting image. Refer my notes
+			DCA\Domain_3_Installation_and_Configuration\DockerContainerRegistry.md
+	. https://docs.docker.com/storage/storagedriver/select-storage-driver/
+		- how to do it?
+			- https://docs.docker.com/storage/storagedriver/device-mapper-driver/
+	. https://docs.docker.com/storage/storagedriver/aufs-driver/
 - [Describe and demonstrate configuration of logging drivers (splunk, journald, etc.)]()
-
-- [Describe and demonstrate how to set up swarm, configure managers, add nodes, and setup the backup schedule](https://docs.docker.com/engine/swarm/admin_guide/)
+	https://docs.docker.com/config/containers/logging/configure/
+	
+- [Describe and demonstrate how to set up swarm, configure managers, add nodes, and setup the backup schedule]
+	(https://docs.docker.com/engine/swarm/admin_guide/)
 - [Describe and demonstrate how to create and manage user and teams](http://docs.docker.oeynet.com/datacenter/dtr/2.3/guides/admin/manage-users/create-and-manage-teams/)
+	RBAC: refer my RBAC notes.
+	https://www.mirantis.com/blog/role-based-access-control-for-kubernetes-with-docker-enterprise/
 - [Describe and demonstrate how to configure the Docker daemon to start on boot](https://docs.docker.com/install/linux/linux-postinstall/)
+	systemctl start docker
+	systemctl enable docker
 - [Describe and demonstrate how to use certificate-based client-server authentication to ensure a Docker daemon has the rights to access images on a registry](https://docs.docker.com/engine/security/certificates/)
+https://github.com/andreburgaud/docker-cert-auth
+https://docs.docker.com/engine/security/protect-access/
+	
 - [Describe the use of namespaces, cgroups, and certificate configuration](https://docs.docker.com/get-started/overview/#the-underlying-technology)
+namespaces, 
+https://docs.docker.com/get-started/overview/#
+https://docs.docker.com/engine/security/userns-remap/
+https://medium.com/@BeNitinAgarwal/understanding-the-docker-internals-7ccb052ce9fe
+https://www.cloudsigma.com/manage-docker-resources-with-cgroups/
+
+cgroups
+https://shekhargulati.com/2019/01/03/how-docker-uses-cgroups-to-set-resource-limits/
+certificate configuration
+https://docs.docker.com/engine/security/certificates/
+https://vmware.github.io/vic-product/assets/files/html/1.3/vic_app_dev/configure_docker_client.html
+https://help.kendis.io/en/articles/3382550-configure-ssl-for-docker
 - [Describe and interpret errors to troubleshoot installation issues without assistance](https://docs.docker.com/config/daemon/#troubleshoot-the-daemon)
+https://docs.coveo.com/en/2927/#
+https://docs.docker.com/docker-for-windows/troubleshoot/
+.
 - Describe and demonstrate the steps to deploy the docker engine in [Docker, ](https://docs.docker.com/install/linux/docker-ce/ubuntu/) [DTR, ](http://docs.docker.oeynet.com/datacenter/dtr/2.3/guides/admin/install/) [UCP,](http://docs.docker.oeynet.com/datacenter/ucp/2.2/guides/admin/install/) [Docker on AWS](https://aws.amazon.com/getting-started/hands-on/deploy-docker-containers/) and possibly [on premises HA config](https://docs.docker.com/engine/swarm/admin_guide/#add-manager-nodes-for-fault-tolerance)
-- [Describe and demonstrate how to configure backups for UCP and DTR](http://docs.docker.oeynet.com/datacenter/ucp/2.2/guides/admin/backups-and-disaster-recovery/)
+				- [Describe and demonstrate how to configure backups for UCP and DTR](http://docs.docker.oeynet.com/datacenter/ucp/2.2/guides/admin/backups-and-disaster-recovery/)
 
 
 ### Domain 2: Image Creation, Management, and Registry (20% of exam)
@@ -58,7 +93,7 @@ Web version can be found here: [DCA website](https://evalle.github.io/DCA/)
 - [Push an image to a registry](https://docs.docker.com/engine/reference/commandline/push/)
 - [Sign an image in a registry](https://docs.docker.com/engine/reference/commandline/trust_sign/)
 - [Pull](https://docs.docker.com/engine/reference/commandline/pull/) and [delete](https://docs.docker.com/registry/spec/api/#deleting-an-image) images from a registry
-
+- [Flatten an image](WIP)
 ### Domain 6: Storage and Volumes (10% of exam)
 - [Identify the correct graph drivers to uses with various operating systems](https://docs.docker.com/storage/storagedriver/select-storage-driver/)
 - [Describe and demonstrate how to configure devicemapper](https://docs.docker.com/storage/storagedriver/device-mapper-driver/#configure-docker-with-the-devicemapper-storage-driver)
@@ -82,7 +117,17 @@ Web version can be found here: [DCA website](https://evalle.github.io/DCA/)
 - [Describe and demonstrate how to configure Docker to use external DNS](https://gist.github.com/Evalle/7b21e0357c137875a03480428a7d6bf6)
 - [Describe and demonstrate how to use Docker to load balance HTTP/HTTPs traffic to an application (Configure L7 load balancing with Docker EE)](https://www.docker.com/blog/enhanced-layer-7-routing-swarm-docker-enterprise-edition-beta/)
 - [Describe and demonstrate how to deploy a service on a Docker overlay network](https://docs.docker.com/network/overlay/)
-- [Describe and demonstrate how to troubleshoot container and engine logs to resolve connectivity issues between containers](https://success.mirantis.com/article/troubleshooting-container-networking)
+- [Describe and demonstrate how to troubleshoot container and engine logs to resolve connectivity issues between containers](
+	https://docs.docker.com/engine/reference/commandline/logs/
+	https://docs.docker.com/config/daemon/
+	https://docs.docker.com/config/containers/logging/
+	https://docs.docker.com/config/containers/logging/configure/
+	https://docs.docker.com/engine/reference/commandline/service_logs/
+	https://docs.docker.com/config/containers/logging/dual-logging/
+
+	https://docs.docker.com/docker-for-mac/troubleshoot/
+	https://docs.docker.com/docker-for-windows/troubleshoot/
+	)
 - (Since Study Guide 1.5) [Describe how to route traffic to Kubernetes pods using ClusterIP and NodePort services](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types)
 - (Since Study Guide 1.5) [Describe the Kubernetes’ container network model](https://kubernetes.io/docs/concepts/cluster-administration/networking/)
 
@@ -94,9 +139,10 @@ Web version can be found here: [DCA website](https://evalle.github.io/DCA/)
 - [Describe and demonstrate how to extend the instructions to run individual containers into running services under swarm](https://docs.docker.com/engine/swarm/swarm-tutorial/deploy-service/)
 - Describe the importance of quorum in a swarm cluster.
 	- [What is RAFT algorihm](http://thesecretlivesofdata.com/raft/) 
+		https://docs.docker.com/engine/swarm/raft
 	- [RAFT notes](https://github.com/vilasvarghese/DCA/blob/master/Domain1-Orchestration/Raft/Notes.txt)
 	
-- [Describe the difference between running a container and running a service.](https://github.com/vilasvarghese/dca/Domain1-Orchestration/RunningServiceAndContainer/Notes.txt)
+- [Describe the difference between running a container and running a service.](https://github.com/vilasvarghese/DCA/blob/master/Domain1-Orchestration/RunningServiceAndContainer/Notes.txt)
 - [Interpret the output of “docker inspect” commands](https://github.com/vilasvarghese/DCA/blob/master/Domain1-Orchestration/dockerInspect/Notes.txt)
 - [Convert an application deployment into a stack file using a YAML compose file with "docker stack deploy"](https://docs.docker.com/engine/swarm/stack-deploy/)
 
@@ -123,6 +169,7 @@ Web version can be found here: [DCA website](https://evalle.github.io/DCA/)
 
 
 ### Domain 5: Security (15% of exam)
+- [Overview](DCA\Domain_5_Security\Notes.md) 
 - (Since Study Guide 1.5) Describe [security administration](https://docs.docker.com/engine/security/) and [tasks](https://docs.docker.com/engine/swarm/how-swarm-mode-works/services/#tasks-and-scheduling)
 - [Describe the process of signing an image](https://docs.docker.com/engine/security/trust/content_trust/#push-trusted-content)
 - [Describe default engine security](https://docs.docker.com/engine/security/security/)
@@ -136,12 +183,31 @@ Web version can be found here: [DCA website](https://evalle.github.io/DCA/)
   - [from GUI](https://docs.mirantis.com/docker-enterprise/v3.0/dockeree-products/ucp/admin/configure/use-your-own-tls-certificates.html)
   - [print the public certificates](http://docs.docker.oeynet.com/datacenter/ucp/2.2/reference/cli/dump-certs/)
   2. [**DTR** is now Mirantis Secure Registry or **MSR**](https://docs.mirantis.com/containers/v3.1/dockeree-products/msr/msr-configure/use-your-own-tls-certificates.html)
-- [Describe and demonstrate that an image passes a security scan](http://docs.docker.oeynet.com/datacenter/dtr/2.3/guides/admin/configure/set-up-vulnerability-scans/)
+- [Describe and demonstrate that an image passes a security scan]()
 - [Describe and demonstrate how to enable Docker Content Trust.](https://docs.docker.com/engine/security/trust/content_trust/)
 - [Describe and demonstrate how to configure RBAC with UCP](http://docs.docker.oeynet.com/datacenter/ucp/2.2/guides/access-control/)
 - [Describe and demonstrate how to integrate UCP with LDAP/AD](http://docs.docker.oeynet.com/datacenter/ucp/2.2/guides/admin/configure/external-auth/)
 - [Describe and demonstrate how to create UCP client bundles](https://blog.docker.com/2017/09/get-familiar-docker-enterprise-edition-client-bundles/)
 
+
+------------------
+Orchestration Overview
+Kubernetes Component Introduction
+YAML Introduction
+Kubernetes Cluster Installation Analogy
+Kubernetes Cluster Types of Installation
+POD getting started
+POD File Copy and working with Ports
+ReplicaSet Introduction
+Deployments Introduction
+Service Introduction
+Label Selector Introduction
+Volume Introduction
+Configmap Introduction
+Secrets Introduction
+Namespace Introduction
+
+--------------------
 
 - Vilas Added general
 - [UCP, DTR]
@@ -154,12 +220,12 @@ Web version can be found here: [DCA website](https://evalle.github.io/DCA/)
 - Available globally in English
 - USD $195 or Euro €175 purchased online
 - Results delivered immediately
+- Pass % : 70
 
 ## Useful Links
 
 - [About the exam](https://training.mirantis.com/dca-certification-exam/)
 - [Official study guide (PDF)](https://training.mirantis.com/wp-content/uploads/2020/10/Docker-Study-Guide_v1.5-October.pdf)
-- [Schedule your Docker Certified Associate Exam](https://training.mirantis.com/dca-certification-exam/)
-
-
-
+- [Mock Questions1](https://medium.com/bb-tutorials-and-thoughts/250-practice-questions-for-the-dca-exam-84f3b9e8f5ce)
+- - [Mock Questions2](https://chercher.tech/docker-certification/docker-certified-associate-dca-certification-practice-exams-set-18)
+- [My Reference] /DCA/General/Notes
